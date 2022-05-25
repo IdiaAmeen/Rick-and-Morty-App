@@ -1,10 +1,12 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 class Characters extends Component {
   constructor(props) {
     super(props);
     this.state = {
       error: null,
       isLoaded: false,
+      isDisplay: false,
       items: [],
     };
   }
@@ -39,10 +41,16 @@ class Characters extends Component {
       return (
         <>
           {items.map((item) => (
-            <div className="characer" key={item.id}>
+            <Link
+              to={`/location/${item.location.name}`}
+              state={{ item }}
+              className="characer"
+              key={item.id}
+              item={item}
+            >
               <img src={item.image} />
               {item.name} {item.status} {item.species}
-            </div>
+            </Link>
           ))}
         </>
       );
