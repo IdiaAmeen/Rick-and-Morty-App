@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, useLocation } from "react-router-dom";
+import "./Location.css";
 export default function Location() {
   const [data, setData] = useState();
   const location = useLocation();
@@ -23,15 +24,15 @@ export default function Location() {
   console.log(data);
   if (data) {
     return (
-      <>
+      <div className="Character">
         <h1>Hey, I'm {name}!</h1>
         <img src={character.image} />
         <p>{character.name}</p>
         <p>I'm from {data.name}</p>
         <p>Type: {data.type}</p>
-        <p>Dimension:{data.dimesion}</p>
-        <p>Population:{data.residents.length}</p>
-      </>
+        <p>Dimension: {data.dimension}</p>
+        <p>Population: {data.residents.length}</p>
+      </div>
     );
   }
   return (
