@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 class Characters extends Component {
   constructor(props) {
     super(props);
     this.state = {
       error: null,
-      isLoaded: false,
-      isDisplay: false,
-      items: [],
+
+      characters: [],
+      locations: [],
     };
   }
 
@@ -18,7 +18,24 @@ class Characters extends Component {
         (result) => {
           this.setState({
             isLoaded: true,
-            items: result.results,
+            characters: result.results,
+          });
+        },
+
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error,
+          });
+        }
+      );
+    fetch("https://rickandmortyapi.com/api/location")
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            isLoaded: true,
+            location: result.results,
           });
         },
 
@@ -32,7 +49,7 @@ class Characters extends Component {
   }
 
   render() {
-    const { error, isLoaded, items } = this.state;
+    const { error, isLoaded, characters, locations } = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
@@ -40,16 +57,16 @@ class Characters extends Component {
     } else {
       return (
         <>
-          {items.map((item) => (
+          {characters.map((char) => (
             <Link
-              to={`/location/${item.location.name}`}
-              state={{ item }}
+              to={`/location/${char.location.name}`}
+              state={{ char }}
               className="characer"
-              key={item.id}
-              item={item}
+              key={char.id}
+              item={char}
             >
-              <img src={item.image} />
-              {item.name} {item.status} {item.species}
+              <img src={char.image} />
+              {char.name} {char.status} {char.species}
             </Link>
           ))}
         </>
@@ -57,4 +74,23 @@ class Characters extends Component {
     }
   }
 }
-export default Characters;
+export default useParams(Characters);
+// class Characters extends Component {
+//   constructor(props) {
+//     super(props);
+//   }
+
+//   render() {
+//     const char = this.props.character;
+//     return (
+//       <>
+//         <Link to={`/location/${char.location.name}`}>
+//           <img src={char.image} alt={char.name} height="100px" width="100px" />
+//           <p>{char.status}</p>
+//           <p>{char.species}</p>
+//         </Link>
+//       </>
+//     );
+//   }
+// }
+// export default Characters;
