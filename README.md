@@ -7,6 +7,8 @@ Originally I was deciding if I should create a main page that displays the chara
 
 -- Weakness : There were a lot of changes in the newest version of React. For example, 'withRouter' as well as 'Switch'. I had to reevaluate and learn how to match params the new way. In addition to that, writing tests is something I have to read documentation for . However, I think now I will make sure to incorporate that into my process of building react apps
 
+-- Strength: Hitting MVP with clean code and using new React practices
+
 ## How did you handle error cases? Eg: botched response, no response, etc. ##
 
 With every API call I created an error catch. On the characters component, theres a conditional statement to display loading while api loads, an error message if there is an error and to render data if it loads successfully. In the Locations component, if no data renders, it should display the image of the character as well as an error message
