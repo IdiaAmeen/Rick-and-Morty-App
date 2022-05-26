@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+import "./Characters.css";
 class Characters extends Component {
   constructor(props) {
     super(props);
@@ -29,27 +30,10 @@ class Characters extends Component {
           });
         }
       );
-    // fetch("https://rickandmortyapi.com/api/location")
-    //   .then((res) => res.json())
-    //   .then(
-    //     (result) => {
-    //       this.setState({
-    //         isLoaded: true,
-    //         location: result.results,
-    //       });
-    //     },
-
-    //     (error) => {
-    //       this.setState({
-    //         isLoaded: true,
-    //         error,
-    //       });
-    //     }
-    //   );
   }
 
   render() {
-    const { error, isLoaded, characters, locations } = this.state;
+    const { error, isLoaded, characters } = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
@@ -64,8 +48,10 @@ class Characters extends Component {
               key={char.id}
               state={this.state}
             >
-              <img src={char.image} />
-              {char.name} {char.status} {char.species}
+              <img src={char.image} id="img" />
+              <p id="name">{char.name} </p>
+              <p id="status"> {char.status}</p>
+              <p id="species"> {char.species}</p>
             </Link>
           ))}
         </>
@@ -74,22 +60,3 @@ class Characters extends Component {
   }
 }
 export default Characters;
-// class Characters extends Component {
-//   constructor(props) {
-//     super(props);
-//   }
-
-//   render() {
-//     const char = this.props.character;
-//     return (
-//       <>
-//         <Link to={`/location/${char.location.name}`}>
-//           <img src={char.image} alt={char.name} height="100px" width="100px" />
-//           <p>{char.status}</p>
-//           <p>{char.species}</p>
-//         </Link>
-//       </>
-//     );
-//   }
-// }
-// export default Characters;

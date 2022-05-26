@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { Component } from "react";
 
 import Characters from "./components/Characters";
 import Location from "./components/Location";
 
-import { Route, Routes, Router } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
-function App(props) {
+function App() {
   return (
     <div className="app">
       <Routes>

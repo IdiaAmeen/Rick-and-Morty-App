@@ -1,70 +1,23 @@
-# Getting Started with Create React App
+## What architectural decisions did you make and why?
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Originally I was deciding if I should create a main page that displays the characters and a modal on click to display location information. Then I was curious if I should have the div expand on hover to display data on location. I went with the DOM model I have so I can run the second API based on params. I thought this was a better idea than using the all location endpoint and filtering because that takes more time.
 
-## Available Scripts
+## Elaborate on strengths and weaknesses.##
 
-In the project directory, you can run:
+-- Weakness : There were a lot of changes in the newest version of React. For example, 'withRouter' as well as 'Switch'. I had to reevaluate and learn how to match params the new way. In addition to that, writing tests is something I have to read documentation for . However, I think now I will make sure to incorporate that into my process of building react apps
 
-### `npm start`
+## How did you handle error cases? Eg: botched response, no response, etc.##
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+With every API call I created an error catch. On the characters component, theres a conditional statement to display loading while api loads, an error message if there is an error and to render data if it loads successfully. In the Locations component, if no data renders, it should display the image of the character as well as an error message
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## How did you test the app?##
 
-### `npm test`
+I tested my app by console logging to inspect data on Chrome. Additionally, I tweaked my code to create errors.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## What third party libraries/ external code snippets did you use, if any?##
 
-### `npm run build`
+I chose not to use any third party libraries
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## If you had more time, what would you have done differently?##
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+I would make a more complex app.I would incorporate a search function. I would also create more automatic tests using Jest.
