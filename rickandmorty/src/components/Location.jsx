@@ -29,7 +29,7 @@ export default function Location() {
         <p>{character.name}</p>
         <p>I'm from {data.name}</p>
         <p>Type: {data.type}</p>
-        <p>Dimension:{data.dimestion}</p>
+        <p>Dimension:{data.dimesion}</p>
         <p>Population:{data.residents.length}</p>
       </>
     );
