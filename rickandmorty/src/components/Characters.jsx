@@ -29,23 +29,23 @@ class Characters extends Component {
           });
         }
       );
-    fetch("https://rickandmortyapi.com/api/location")
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            location: result.results,
-          });
-        },
+    // fetch("https://rickandmortyapi.com/api/location")
+    //   .then((res) => res.json())
+    //   .then(
+    //     (result) => {
+    //       this.setState({
+    //         isLoaded: true,
+    //         location: result.results,
+    //       });
+    //     },
 
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error,
-          });
-        }
-      );
+    //     (error) => {
+    //       this.setState({
+    //         isLoaded: true,
+    //         error,
+    //       });
+    //     }
+    //   );
   }
 
   render() {
@@ -59,11 +59,10 @@ class Characters extends Component {
         <>
           {characters.map((char) => (
             <Link
-              to={`/location/${char.location.name}`}
-              state={{ char }}
-              className="characer"
+              to={`/${char.name}`}
+              className="character"
               key={char.id}
-              item={char}
+              state={this.state}
             >
               <img src={char.image} />
               {char.name} {char.status} {char.species}
@@ -74,7 +73,7 @@ class Characters extends Component {
     }
   }
 }
-export default useParams(Characters);
+export default Characters;
 // class Characters extends Component {
 //   constructor(props) {
 //     super(props);
