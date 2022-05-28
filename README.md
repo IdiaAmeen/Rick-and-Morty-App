@@ -23,4 +23,4 @@ I chose not to use any third party libraries
 
 ## If you had more time, what would you have done differently? ##
 
-I would make a more complex app.I would incorporate a search function. I would also create more automatic tests using Jest.
+I would make a more complex app.I would incorporate a search function. I would also create more automatic tests using Jest. Lastly, I would add more styling using CSS 
